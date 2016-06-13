@@ -1,0 +1,8 @@
+{
+    "en" : {
+        "my-greeting.title": "Update text to change the greeting."
+    },
+    "es" : {
+        "my-greeting.title": "Modifica el texto del input para cambiar el saludo."
+    }
+}

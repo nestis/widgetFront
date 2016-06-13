@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>login-form-basic Test</title>
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <script src="/bower_components/web-component-tester/browser.js"></script>
+
+    <script src="../scripts/components/ajax.js"></script>
+    <script src="../scripts/components/auth.js"></script>
+    <script src="../scripts/components/frontLogin.js"></script>
+    <script src="../scripts/main.js"></script>
+    
+    <!-- Import the element to test -->
+    <link rel="import" href="../elements/loginForm/login-form.html">
+
+</head>
+
+<body>
+
+    <test-fixture id="login-form-test">
+        <template>
+            <login-form></login-form>
+        </template>
+    </test-fixture>
+
+    <script>
+        suite('login-form tests', function() {
+          
+            var loginForm;
+            setup(function() {
+                loginForm = fixture('login-form-test');
+            });
+
+            test('Should fill the form', function() {
+                loginForm.username = 'admin';
+                loginForm.password = 'password';
+                usernameInput = loginForm.$.username_input;
+                passwordInput = loginForm.$.password_input;
+                assert.equal(usernameInput.value, 'admin');
+                assert.equal(passwordInput.value, 'password');
+            });
+            
+            test('Should fill the form incorrectly', function() {
+                loginForm.username = 'admin';
+                loginForm.password = 'dddddd';
+                // We can also use Polymer.dom functions....
+                usernameInput = Polymer.dom(loginForm.root).querySelector('#username_input');
+                passwordInput = Polymer.dom(loginForm.root).querySelector('#password_input');
+                assert.equal(usernameInput.value, 'admin');
+                assert.notEqual(passwordInput.value, 'password');
+            });
+            
+            test('Should change the language', function() {
+                console.log(loginForm.language);
+                loginForm._toggle();
+                
+                flush(function(){
+                    console.log(loginForm.language);
+                });
+                assert.equal(loginForm.language, 'es');
+                assert.equal(usernameInput.textContent, 'Recuerdame');
+            });
+        });
+    </script>
+</body>
+</html>

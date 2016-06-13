@@ -1,0 +1,14 @@
+{
+    "en" : {
+        "menu.title" : "Menu",
+        "menu.link.home" : "Home",
+        "menu.link.admin" : "Admin",
+        "menu.link.contact" : "Contact"
+    },
+    "es" : {
+        "menu.title" : "Menú",
+        "menu.link.home" : "Home",
+        "menu.link.admin" : "Administración",
+        "menu.link.contact" : "Contacto"
+    }
+}

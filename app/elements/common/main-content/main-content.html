@@ -1,0 +1,51 @@
+<link rel="import" href="main-content-styles.html">
+<dom-module id="main-content">
+    <template>
+        <style include="main-content-styles"></style>
+        <paper-drawer-panel id="paperDrawerPanel">
+            <paper-scroll-header-panel drawer fixed>
+                <!-- We pass the app.language variable on one-way binding [[ ]] because we don't need to modify it here. -->
+                <menu-drawer language="[[language]]" route="[[route]]" baseUrl="{{baseUrl}}"></menu-drawer>
+            </paper-scroll-header-panel>
+
+            <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+                <!-- header-drawer contains the language-selector component, so we need to pass the app.language variable 
+                using two-way binding {{ }} in order to modify it -->
+                <header-drawer language="{{language}}"></header-drawer>
+
+                <div class="content">
+
+                <iron-pages attr-for-selected="data-route" selected="{{route}}">
+                    <section data-route="home" tabindex="-1">
+                    <paper-material elevation="1">
+                        <my-greeting language="[[language]]"></my-greeting>
+                        <p class="subhead">You now have:</p>
+                        <my-list></my-list>
+                    </paper-material>
+                    </section>
+
+                    <template is="dom-if" if="{{isAdmin}}">
+                        <section data-route="admin" tabindex="-1">
+                        <paper-material elevation="1">
+                            <live-data-graph language="[[language]]"></live-data-graph>
+                        </paper-material>
+                        </section>
+                    </template>
+
+                    <section data-route="contact" tabindex="-1">
+                    <paper-material elevation="1">
+                        <h1 class="page-title" tabindex="-1">{{localize('contact.title')}}</h1>
+                        <p>{{localize('contact.content')}}</p>
+                    </paper-material>
+                    </section>
+                </iron-pages>
+                </div>
+            </paper-scroll-header-panel>
+        </paper-drawer-panel>
+
+        <paper-toast id="toast">
+            <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">OK</span>
+        </paper-toast>
+    </template>
+    <script src="main-content.js"></script>
+</dom-module>

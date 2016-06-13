@@ -1,0 +1,14 @@
+{
+    "en" : {
+        "header.greeting" : "Hello ",
+        "header.title" : "VASS Polymer Pet",
+        "header.subtitle" : "The future of the web today",
+        "header.logout" : "Logout"
+    },
+    "es" : {
+        "header.greeting" : "Hola ",
+        "header.title" : "VASS Polymer Pet",
+        "header.subtitle" : "La web del futuro, hoy",
+        "header.logout" : "Logout"
+    }
+}

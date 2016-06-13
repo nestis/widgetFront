@@ -1,0 +1,64 @@
+<!-- Polymer components needed to show the login form -->
+<!-- This component will be independent of the others, so we have to import almost everything... -->
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+<link rel="import" href="../../bower_components/neon-animation/animations/scale-up-animation.html">
+<link rel="import" href="../../bower_components/neon-animation/animations/fade-out-animation.html">
+<link rel="import" href="login-form-styles.html">
+
+<dom-module id="login-form">
+    <template>
+        <!-- Include login-form-styles module -->
+        <style include="login-form-styles"></style>
+
+        <!-- Don't use language-selector componente because it's coupled to 'app' javascript variable
+        and we don't have that var here. We want to be independent -->
+        <div class="lang">
+            <span title="english">🇬🇧</span>
+            <paper-toggle-button on-change="_toggle" id="switch">
+                <span title="spanish">🇪🇸</span>
+            </paper-toggle-button>
+        </div>
+
+        <hgroup>
+            <h1>{{localize('login.form.title')}}</h1>
+            <h3>{{localize('login.form.subtitle')}}</h3>
+        </hgroup>
+        <form>
+            <div class="group">
+                <paper-input id="username_input" label="{{localize('login.form.username')}}" 
+                    value="{{username}}" required></paper-input>
+            </div>
+            <div class="group">
+                 <paper-input id="password_input" label="{{localize('login.form.password')}}" 
+                    type="password" value="{{password}}" required></paper-input>
+            </div>
+            <br>
+            <paper-checkbox class="blue" on-tap="_rememberMe" id="rememberMe">
+                {{localize('login.form.rememberMe')}}
+            </paper-checkbox>
+            <br><br> 
+            <paper-button class="button buttonBlue" on-tap="_doLogin">
+                {{localize('login.form.button')}}
+            </paper-button>
+        </form>
+
+        <!-- Error dialog -->
+        <paper-dialog id="modalDialog" entry-animation="scale-up-animation" exit-animation="fade-out-animation" modal>
+            <h2>{{localize('login.modal.title')}}</h2>
+            <paper-dialog-scrollable>
+                {{localize('login.modal.msg')}}
+            </paper-dialog-scrollable>
+            <div class="buttons">
+                <paper-button dialog-confirm>{{localize('login.modal.button')}}</paper-button>
+            </div>
+        </paper-dialog>
+    </template>
+    <script src="login-form.js"></script>
+</dom-module>

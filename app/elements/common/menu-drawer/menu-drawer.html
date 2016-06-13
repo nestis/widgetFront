@@ -1,0 +1,30 @@
+<link rel="import" href="menu-drawer-styles.html">
+<dom-module id="menu-drawer">
+  <template>
+    <style include="menu-drawer-styles"></style>
+
+    <paper-toolbar id="drawerToolbar">
+      <span class="menu-name">{{localize('menu.title')}}</span>
+    </paper-toolbar>
+
+    <!-- Both route and baseUrl are defined on app.js. -->
+    <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
+      <a data-route="home" href="{{baseUrl}}home">
+        <iron-icon icon="home"></iron-icon>
+        <span>{{localize('menu.link.home')}}</span>
+      </a>
+      <template is="dom-if" if="{{isAdmin}}">
+        <a data-route="admin" href="{{baseUrl}}admin">
+          <iron-icon icon="info"></iron-icon>
+          <span>{{localize('menu.link.admin')}}</span>
+        </a>
+      </template>
+      <a data-route="contact" href="{{baseUrl}}contact">
+        <iron-icon icon="mail"></iron-icon>
+        <span>{{localize('menu.link.contact')}}</span>
+      </a>
+    </paper-menu>
+
+  </template>
+  <script src="menu-drawer.js"></script>
+</dom-module>

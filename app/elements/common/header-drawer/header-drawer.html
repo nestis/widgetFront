@@ -1,0 +1,29 @@
+
+<link rel="import" href="../language-selector/language-selector.html">
+<link rel="import" href="header-drawer-styles.html">
+<dom-module id="header-drawer">
+    <!-- Include styles module for this component -->
+    <style include="header-drawer-styles"></style>
+    <template>
+        <paper-toolbar id="mainToolbar" class="tall">
+            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+
+            <span class="space"></span>
+            <div>
+                {{localize('header.greeting')}} {{account.lastName}}
+            </div>
+            <!-- Pass the variable language as two-way binding. We want to modify it inside language-selector component -->
+            <language-selector language="{{language}}"></language-selector>            
+            <paper-button on-tap="_doLogout">{{localize('header.logout')}}</paper-button>
+            
+            <div class="middle middle-container">
+                <div class="app-name">{{localize('header.title')}}</div>
+            </div>
+            
+            <div class="bottom bottom-container">
+                <div class="bottom-title">{{localize('header.subtitle')}}</div>
+            </div>
+        </paper-toolbar>
+    </template>
+    <script src="header-drawer.js"></script>
+</dom-module>

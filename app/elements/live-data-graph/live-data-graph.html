@@ -1,0 +1,19 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<dom-module id="live-data-graph">
+    <style include="iron-flex"></style>
+    <template>
+        <div class="horizontal layout">
+            <div class="flex-2">
+                <div id="container" style="width: 310px; height: 400px; margin: 0 auto"></div>
+            </div>
+            <div class="flex-2">
+                <span id="legend">
+                    <h1>{{localize('live-graph.title')}}</h1>
+                    <p>{{localize('live-graph.msg')}}</p>
+                </span>
+            </div>
+        </div>
+    </template>
+    <script src="live-data-graph.js"></script>
+</dom-module>

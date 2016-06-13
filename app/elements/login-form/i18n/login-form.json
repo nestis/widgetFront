@@ -1,0 +1,24 @@
+{
+    "en" : {
+        "login.form.title" : "VASS Polymer Pet",
+        "login.form.subtitle" : "Please do login. The default credentials are admin:admin",
+        "login.form.username" : "Username",
+        "login.form.password" : "Password",
+        "login.form.rememberMe" : "Remember me",
+        "login.form.button" : "Login",
+        "login.modal.title" : "Error",
+        "login.modal.msg" : "There has been an error while processing the login. Please try again.",
+        "login.modal.button" : "Accept"
+    },
+    "es" : {
+        "login.form.title" : "VASS Polymer Pet",
+        "login.form.subtitle" : "Por favor, haz login. El usuario por defecto es admin:admin",
+        "login.form.username" : "Usuario",
+        "login.form.password" : "Contraseña",
+        "login.form.rememberMe" : "Recuerdame",
+        "login.form.button" : "Login",
+        "login.modal.title" : "Error",
+        "login.modal.msg" : "Ha ocurrido un error procesando tu solicitud. Por favor inténtalo de nuevo..",
+        "login.modal.button" : "Aceptar"
+    }
+}

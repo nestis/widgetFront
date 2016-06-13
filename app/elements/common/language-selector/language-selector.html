@@ -1,0 +1,29 @@
+<dom-module id="language-selector">
+    <template>
+        <!-- There are only a few styles defined, we don't need a styles module... -->
+        <style>
+            paper-toggle-button {
+                display: inline-block;
+            }
+            .lang {
+                text-align: center;
+                font-size: 20px;
+            }
+            paper-toggle-button.green {
+                --paper-toggle-button-checked-bar-color:  var(--google-grey-300);
+                --paper-toggle-button-checked-button-color:  var(--google-grey-300);
+                --paper-toggle-button-checked-ink-color: var(--google-grey-300);
+                --paper-toggle-button-unchecked-bar-color:  var(--paper-light-blue-300);
+                --paper-toggle-button-unchecked-button-color:  var(--paper-light-blue-300);
+                --paper-toggle-button-unchecked-ink-color: var(--paper-light-blue-300);
+            }
+        </style>
+        <div class="lang">
+            <span title="english">🇬🇧</span>
+            <paper-toggle-button on-change="_toggle" id="switch" class="green">
+              <span title="spanish">🇪🇸</span>
+            </paper-toggle-button>
+          </div>
+    </template>
+    <script src="language-selector.js"></script>
+</dom-module>

@@ -1,0 +1,11 @@
+{
+    "en" : {
+        "live-graph.title" : "Integration Example",
+        "live-graph.msg" : "Here is an example on how to integrate Polymer with a third party library (Highcharts) and REST Services provided by the JHipster app" 
+    },
+    "es" :{
+        "live-graph.title" : "Ejemplo de Integración",
+        "live-graph.msg" : "Aquí se puede observar un ejemplo de un componente Polymer que usa librerías de terceros (Highcharts) y consume un servicio REST expuesto por la aplicación JHipster" 
+    
+    }
+}

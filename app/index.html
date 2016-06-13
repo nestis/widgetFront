@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Polymer Starter Kit">
+  <title>VASS Polymer Pet</title>
+
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#2E3AA1">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="PSK">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Tile color for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <!-- Tile icon for Win8 (144x144) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="VASS Polymer Pet">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <!-- build:js scripts/vendor.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="bower_components/page/page.js"></script>
+  <script src="bower_components/intl-messageformat/dist/intl-messageformat.min.js"></script>
+  <script src="bower_components/web-animations-js/web-animations-next-lite.min.js"></script>
+  <script src="bower_components/promise-polyfill/Promise.js"></script>
+  <!-- endbuild -->
+
+  <!-- Because this project uses vulcanize this should be your only html import
+        in this file. All other imports should go in elements.html -->
+  <link rel="import" href="elements/elements.html">
+
+  <link rel="import" href="elements/customElements.html">
+
+  <style is="custom-style" include="shared-styles"></style>
+</head>
+
+<body unresolved>
+  <!-- build:remove -->
+  <span id="browser-sync-binding"></span>
+  <!-- endbuild -->
+
+
+  <!-- Here starts VASS Polymer Pet logic -->
+
+  <!-- dom-bind will create a Polymer binding without defining a new dom-module. 
+    https://www.polymer-project.org/1.0/docs/api/dom-bind
+    We will use this feature on app.js -> let app = document.querySelector('#app');
+    In this file we will define the variable app, which will be used in all the components. -->
+  <template is="dom-bind" id="app">
+
+    <!-- Main Content... -->
+    <main-content language="[[language]]" route="[[route]]" baseUrl="{{baseUrl}}" id="content"></main-content>
+    
+  </template>
+
+  <!-- build:js(.tmp) scripts/main.js -->
+  <script src="scripts/components/ajax.js"></script>
+  <script src="scripts/components/auth.js"></script>
+  <script src="scripts/components/frontLogin.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>

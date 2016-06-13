@@ -1,0 +1,80 @@
+<script>
+  'use strict';
+  window.addEventListener('WebComponentsReady', () => {
+    // Removes end / from app.baseUrl which page.base requires for production
+    if (window.location.port === '') {  // if production
+      page.base(app.baseUrl.replace(/\/$/, ''));
+    }
+
+    let content = document.querySelector('#content');
+
+    // Middleware
+    var scrollToTop = (ctx, next) => {
+      content.scrollPageToTop();
+      next();
+    }
+
+    var closeDrawer = (ctx, next) => {
+      content.closeDrawer();
+      next();
+    }
+
+    var setFocus = (selected) => {
+      document.querySelector('section[data-route="' + selected + '"] .page-title').focus();
+    }
+
+    // Routes
+    page('*', scrollToTop, closeDrawer, (ctx, next) => {
+        // Check if the user is authenticated...
+      VASSPolymer.Services._AuthService.isAuthenticated().then((res) =>{
+          if(res) {
+              next();
+          } else {
+            window.location.href = 'login.html';
+          }
+        }, (err) => {
+            window.location.href = 'login.html';
+        });
+    });
+
+    // Common routing
+    page('/', () => {
+      app.route = 'home';
+      setFocus(app.route);
+    });
+    
+    // Specifig routing
+    page('/home', () =>  {
+      app.route = 'home';
+      setFocus(app.route);
+    });
+
+    page('/admin', () => {
+      if(content.isAdmin) {
+        app.route = 'admin';
+        setFocus(app.route);
+      } else {
+        content.$.toast.text = 'You don\'t have permission to go to that page.';
+        content.$.toast.show();
+        page.redirect(app.baseUrl);
+      }
+    });
+
+    page('/contact', () => {
+      app.route = 'contact';
+      setFocus(app.route);
+    });
+
+    // 404
+    page('*', () => {
+      content.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
+      content.$.toast.show();
+      page.redirect(app.baseUrl);
+    });
+
+    // add #! before urls
+    page({
+      hashbang: true
+    });
+  });
+</script>

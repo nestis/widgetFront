@@ -1,0 +1,10 @@
+{
+    "en" :{
+        "contact.title" : "Contact",
+        "contact.content" : "This is the contact section"
+    },
+    "es" : {
+        "contact.title" : "Contacto",
+        "contact.content" : "Esta es la sección de contacto"
+    }
+}
