@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>login-form-basic Test</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <script src="../bower_components/web-component-tester/browser.js"></script>
+
+    <!-- Import the element to test -->
+    <link rel="import" href="../elements/elements.html">
+    <link rel="import" href="../elements/common/language-selector/language-selector.html">
+
+</head>
+<body>
+    <test-fixture id="language-selector-test">
+        <template>
+            <language-selector language="es"></language-selector>
+        </template>
+    </test-fixture>
+
+    <script>
+        suite('language-selector tests', function() {
+            var languageSelector;
+            setup(function() {
+                localStorage.setItem('VASSPolymerPet.Lang', 'es');
+                languageSelector = fixture('language-selector-test');
+            });
+
+            test('Should preload spanish language', function() {
+                assert.isTrue(languageSelector.$.switch.checked);
+            });
+            
+            test('Should change the language', function(done) {
+                languageSelector.$.switch.checked = false;
+                languageSelector._toggle();
+                flush(function(){
+                    assert.equal(languageSelector.language, 'en');
+                    assert.isTrue(localStorage['VASSPolymerPet.Lang']==='en');
+                    done();
+                });;
+            });
+        });
+    </script>
+</body>
+</html>

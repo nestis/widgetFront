@@ -1,10 +1,12 @@
+// WebComponents test config file
 var path = require('path');
-
 var ret = {
+  // Test path
   'suites': ['app/test'],
   'plugins': {
     'local' : {
-      'browsers' : ['chrome', 'firefox']
+      // browsers to test
+      'browsers' : ['chrome']
     }
   },
   'commandTimeout': 600,

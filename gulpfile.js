@@ -277,13 +277,14 @@ gulp.task('vulcanizeLogin', function() {
     .pipe(gulp.dest('dist/elements/login-form'));
 }); 
 gulp.task('build', ['clean'], (done) => {
-  runSequence(
+  runSequence(['test:local'],
       ['babel','htmlPolymerMinify', 'htmlMinify', 'images', 'json-minify', 'minifyCSS'],
       ['usemin', 'vulcanize', 'vulcanizeLogin', 'copyFiles', 'copyBower'], 
       ['useminMinify'], () => {
        done();
      });
 });
+
 
 // Load tasks for web-component-tester
 // Adds tasks for `gulp test:local` and `gulp test:remote`
